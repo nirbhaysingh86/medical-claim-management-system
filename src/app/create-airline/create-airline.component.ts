@@ -62,9 +62,7 @@ export class CreateAirlineComponent {
       this.isExist = true;
     }
   }
-
-  
-
+   
   get f() {
     return this.airlineForm.controls;
   }

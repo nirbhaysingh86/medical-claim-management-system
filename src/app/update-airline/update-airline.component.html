@@ -1,31 +1,52 @@
 <div class="container">
-  <form  >
-    <div class="row row-padding">
-      <div class="col-4">Provider Name</div>
-      <div class="col-4">
-        <input type="text" class="form-control" maxlength="10" id="providerName" name="providerName" [(ngModel)]="providerName"
-           (input)="search($event)">
+  <h1>Update airline information</h1>
+  <div class="alert alert-warning" role="alert" *ngIf="isExist">
+    Airline records already exists.
+  </div>
+  <form [formGroup]="airlineForm" (ngSubmit)="updateAirline()">
+    <div class="form-group">
+      <div class="row row-padding">
+        <div class="col-4">Provider Name</div>
+        <div class="col-4">
+          <input type="text" class="form-control" maxlength="10" id="providerName" formControlName="providerName"
+                 [matAutocomplete]="autoName">
+          <mat-autocomplete autoActiveFirstOption #autoName="matAutocomplete">
+            <mat-option *ngFor="let option of allAirlines" [value]="option.providerName"  >
+              {{option.providerName}}
+            </mat-option>
+          </mat-autocomplete>
+           
+        </div>
+        <div *ngIf="f.providerName.touched && f.providerName.invalid" class="alert alert-danger">
+          <div *ngIf="f.providerName.errors && f.providerName.errors.required">Provider Name is required.</div>
+          <div *ngIf="f.providerName.errors && f.providerName.errors.pattern">Enter only alphabet.</div>
+        </div>
+      </div>
+      <div class="row row-padding">
+        <div class="col-4">Provider Code</div>
+        <div class="col-4">
+          <input type="text" class="form-control" maxlength="3" id="providerCode" formControlName="providerCode" (click)="getProviderCode()" [matAutocomplete]="autoCode">
+          <mat-autocomplete autoActiveFirstOption #autoCode="matAutocomplete" >
+            <mat-option *ngFor="let option of filterCodeAirline" [value]="option.providerCode" >
+              {{option.providerCode}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+      </div>
+      <div class="row row-padding">
+        <div class="col-4">Provider Type</div>
+        <div class="col-4">
+          <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType">
+          <div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
+            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Number is required.</div>
+            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter only number.</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row row-padding">
-      <div class="col-4">Provider Code</div>
-      <div class="col-4">
-        <input type="text" class="form-control" readonly maxlength="3" id="providerCode" name="providerCode" [(ngModel)]="providerCode" >
-      </div>
-    </div>
-    <div class="row row-padding">
-      <div class="col-4">Provider Type</div>
-      <div class="col-4">
-        <input type="text" class="form-control" maxlength="13" id="providerType" name="providerType" [(ngModel)]="providerType">
-      </div>
-    </div>
-    <div class="row row-padding">
-      <div class="col-4">
-        <button type="submit" class="btn btn-primary" (click)="updateAirline()">Add Airline</button>
-      </div>
-    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!airlineForm.valid">Update Airline</button>
   </form>
 </div>
-
-
 
