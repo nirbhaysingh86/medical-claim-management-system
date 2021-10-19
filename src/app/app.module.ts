@@ -14,6 +14,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AirlineListComponent } from './airline-list/airline-list.component';
 import { ListFilterPipe } from './filters/listFilterPipe';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MaterialModule,
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(AirlineInMemDataService),
     RouterModule.forRoot([
@@ -33,7 +36,8 @@ import { FormsModule } from '@angular/forms';
       { path: 'viewairlines', component: AirlineListComponent },
       //{ path: 'treasures', component: TreasuresComponent },
       //{ path: 'treasure-detail/:id', component: TreasureDetailComponent },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

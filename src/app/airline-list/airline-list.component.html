@@ -1,5 +1,5 @@
 <h3>View Airline Information</h3>
-<form>
+<!--<form>
   <div class="form-group form-inline">
     Filter by provider code:
     <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="searchTerm"
@@ -23,10 +23,45 @@
       </tr>
     </tbody>
   </table>
-  
-</div>
+  </div>-->
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
 
+  <input matInput (keyup)="applyFilter($event)"   #input>
+</mat-form-field>
 
+<div class="mat-elevation-z8" *ngIf="airlines.length>0">
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="onMatSortChange()" matSortDirection="asc" multiTemplateDataRows>
+
+    <!-- providerName Column -->
+    <ng-container matColumnDef="providerName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Provider Code </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.providerCode}} </mat-cell>
+    </ng-container>
+
+    <!-- providerCode Column -->
+    <ng-container matColumnDef="providerCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Provider Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.providerName}}</mat-cell>
+    </ng-container>
+
+    <!-- providerType Column -->
+    <ng-container matColumnDef="providerType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Provider Type </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.providerType}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event"
+                 aria-label="Select page">
+  </mat-paginator>
+ </div>
 
 
 
