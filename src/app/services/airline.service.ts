@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Airline } from '../classes/airline';
+import { Airline } from '../models/airline';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'

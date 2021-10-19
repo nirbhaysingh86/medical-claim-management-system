@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+ 
 
 import { environment } from 'src/environments/environment';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -26,7 +27,7 @@ import { AirlineListComponent } from './airline-list/airline-list.component';
     HttpClientInMemoryWebApiModule.forRoot(AirlineInMemDataService),
     RouterModule.forRoot([
       { path: '', redirectTo: '/airlines', pathMatch: 'full' },
-      { path: 'airlines', component: AirlineListComponent },
+      { path: 'viewairlines', component: AirlineListComponent },
       //{ path: 'treasures', component: TreasuresComponent },
       //{ path: 'treasure-detail/:id', component: TreasureDetailComponent },
     ])

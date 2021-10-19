@@ -1,7 +1,7 @@
  
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Airline } from '../classes/airline';
+import { Airline } from '../models/airline';
 
 @Injectable({
   providedIn: 'root'

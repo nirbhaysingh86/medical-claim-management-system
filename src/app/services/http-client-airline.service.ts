@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Airline } from '../classes/airline';
+import { Airline } from '../models/airline';
 import { AirlineService } from './airline.service';
 const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 @Injectable({

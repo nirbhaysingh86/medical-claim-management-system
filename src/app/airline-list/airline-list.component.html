@@ -1,1 +1,27 @@
- 
+<h1>View AirlineProviders Information</h1>
+
+
+<div class="table-responsive-md">
+  <table class="table table-bordered" >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ProviderCode</th>
+        <th scope="col">ProviderName</th>
+        <th scope="col">ProviderType</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let airline of airlines">
+         
+        <td>{{airline.providerCode}}</td>
+        <td>{{airline.providerName}}</td>
+        <td>{{airline.providerType}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+
+
