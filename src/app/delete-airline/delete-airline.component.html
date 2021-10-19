@@ -1,31 +1,37 @@
 <div class="container">
-  <form  >
-    <div class="row row-padding">
-      <div class="col-4">Provider Name</div>
-      <div class="col-4">
-        <input type="text" class="form-control" maxlength="10" id="providerName" name="providerName" [(ngModel)]="providerName"
-           (input)="search($event)">
+  <h1>Delete airline information</h1>
+  <div class="alert alert-warning" role="alert" *ngIf="isDeleteButton">
+   Please select correct provider type.
+  </div>
+  <form [formGroup]="airlineForm" (ngSubmit)="deleteAirline()">
+    <div class="form-group">
+
+      <div class="row row-padding">
+        <div class="col-4">Provider Code</div>
+        <div class="col-4">
+          <input type="text" class="form-control" maxlength="3" id="providerCode" formControlName="providerCode" [matAutocomplete]="autoCode">
+          <mat-autocomplete autoActiveFirstOption #autoCode="matAutocomplete">
+            <mat-option *ngFor="let option of allAirlines" [value]="option.providerCode">
+              {{option.providerCode}}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+
+      </div>
+      <div class="row row-padding">
+        <div class="col-4">Provider Type</div>
+        <div class="col-4">
+          <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType" (input)="search($event)">
+          <div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
+            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Provider type is required.</div>
+            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter alphabet.</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row row-padding">
-      <div class="col-4">Provider Code</div>
-      <div class="col-4">
-        <input type="text" class="form-control" readonly maxlength="3" id="providerCode" name="providerCode" [(ngModel)]="providerCode" >
-      </div>
-    </div>
-    <div class="row row-padding">
-      <div class="col-4">Provider Type</div>
-      <div class="col-4">
-        <input type="text" class="form-control" maxlength="13" id="providerType" name="providerType" [(ngModel)]="providerType">
-      </div>
-    </div>
-    <div class="row row-padding">
-      <div class="col-4">
-        <button type="submit" class="btn btn-primary" (click)="updateAirline()">Delete Airline</button>
-      </div>
-    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="isDeleteButton ||!airlineForm.valid ">Delete Airline</button>
   </form>
 </div>
-
 
 
