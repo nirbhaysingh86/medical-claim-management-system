@@ -21,8 +21,8 @@ export class AirlineListComponent {
   displayedColumns: string[] = ['providerCode', 'providerName', 'providerType'];
  
   @ViewChild(MatPaginator) paginator: any;
-  dataSource: MatTableDataSource<any> = new MatTableDataSource();
-  @ViewChild(MatSort) sort: any;
+  dataSource: MatTableDataSource<Airline> = new MatTableDataSource();
+  @ViewChild(MatSort, { static: false }) sort: any;
 
   constructor(private airlineService: HttpClientAirlineService) {
    
@@ -55,13 +55,7 @@ export class AirlineListComponent {
   onMatSortChange() {
     this.dataSource.sort = this.sort;
   }
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-  }
-  
+    
   search(value: any): void {
     value = value.target.value;
     this.airlines = this.allAirlines.filter((val) => val.providerCode.toLowerCase().includes(value));
