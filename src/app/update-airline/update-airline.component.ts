@@ -11,7 +11,6 @@ import { HttpClientAirlineService } from '../services/http-client-airline.servic
 export class UpdateAirlineComponent {
   airlines: any;
   allAirlines: any;
-  collectionSize: any;
   providerName: any;
   providerCode: any;
   providerType: any;

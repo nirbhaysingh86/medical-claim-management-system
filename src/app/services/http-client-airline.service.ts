@@ -9,11 +9,12 @@ const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/jso
 @Injectable({
   providedIn: 'root'
 })
- 
-export class HttpClientAirlineService extends AirlineService {
 
+export class HttpClientAirlineService extends AirlineService {
+  isRecordExist: any;
   constructor(private http: HttpClient) {
     super();
+    this.isRecordExist = false;
   }
 
   getAirlines(): Observable<Airline[]> {
@@ -30,8 +31,8 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
-  addAirline(airline:any): Observable<Airline> {
-    
+  addAirline(airline: any): Observable<Airline> {
+
     return this.http.post<Airline>(this.airlinesUrl, airline, cudOptions).pipe(
       catchError(this.handleError)
     );
@@ -66,6 +67,14 @@ export class HttpClientAirlineService extends AirlineService {
   private handleError(error: any) {
     console.error(error);
     return throwError(error);
+  }
+
+  checkExistAirlineRecords(airlineValue: any) {
+    let allAirlinesList = JSON.parse(localStorage.getItem("airlineList") as any);
+    const filterAirline = allAirlinesList.filter((airline: any) => {
+      return airline.providerCode == (airlineValue.providerCode + airlineValue.providerCodeValue) && airline.providerName == airlineValue.providerName && airline.providerType == airlineValue.providerType
+    })
+    return filterAirline.length>0;
   }
 
 }

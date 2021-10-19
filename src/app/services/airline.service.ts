@@ -15,4 +15,5 @@ export abstract class AirlineService {
   abstract searchAirline(providerType: string): Observable<Airline[]>;
   abstract updateAirline(airline: Airline): Observable<Airline>;
 
+
 }
