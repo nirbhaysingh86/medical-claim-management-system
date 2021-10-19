@@ -30,8 +30,8 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
-  addAirline(providerName: string, providerCode: string, providerType:string): Observable<Airline> {
-    const airline = { providerName, providerCode, providerType };
+  addAirline(airline:any): Observable<Airline> {
+    
     return this.http.post<Airline>(this.airlinesUrl, airline, cudOptions).pipe(
       catchError(this.handleError)
     );

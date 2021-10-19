@@ -1,29 +1,30 @@
-<nav id="treasure-header" class="navbar navbar-expand-lg navbar-dark bg-dark nav-padding">
-  <div class="container-fluid">
-    <div class="navbar-brand"> </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+<div class="container no-container-padding">
+  <nav id="airline-header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-brand"> </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-          <a class="nav-link" [routerLink]="['/dashboard']">Create Flight</a>
-        </li>
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            <a class="nav-link" [routerLink]="['/createairline']">Create Flight</a>
+          </li>
+          <li class="nav-item nav-padding" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-          <a class="nav-link" [routerLink]="['/treasures']">Modify Flight </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            <a class="nav-link" [routerLink]="['/treasures']">Modify Flight </a>
+          </li>
+          <li class="nav-item nav-padding" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-          <a class="nav-link" [routerLink]="['/treasures']">Delete Flight </a>
-        </li>
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            <a class="nav-link" [routerLink]="['/treasures']">Delete Flight </a>
+          </li>
+          <li class="nav-item nav-padding" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-          <a class="nav-link" [routerLink]="['/viewairlines']">View Flight </a>
-        </li>
-      </ul>
+            <a class="nav-link" [routerLink]="['/viewairlines']">View Flight </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
- 
+  </nav>
+ </div>

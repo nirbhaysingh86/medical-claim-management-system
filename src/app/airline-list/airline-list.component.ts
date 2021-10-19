@@ -13,7 +13,7 @@ import { HttpClientAirlineService } from '../services/http-client-airline.servic
 export class AirlineListComponent {
   searchTerm: any;
   pageEvent: any;
-  pageSize = 3;
+  pageSize = 20;
   pageSizeOptions: number[] = [3, 5, 7];
   collectionSize: any;
   airlines: any[] = [];

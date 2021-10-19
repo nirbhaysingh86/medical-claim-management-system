@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
- 
+import { MaterialModule } from './material.module';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from 'src/environments/environment';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -13,16 +15,17 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AirlineListComponent } from './airline-list/airline-list.component';
 import { ListFilterPipe } from './filters/listFilterPipe';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
+import { CreateAirlineComponent } from './create-airline/create-airline.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     AirlineListComponent,
-    ListFilterPipe 
+    ListFilterPipe,
+    CreateAirlineComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,7 @@ import { MaterialModule } from './material.module';
     RouterModule.forRoot([
       { path: '', redirectTo: '/airlines', pathMatch: 'full' },
       { path: 'viewairlines', component: AirlineListComponent },
-      //{ path: 'treasures', component: TreasuresComponent },
+      { path: 'createairline', component: CreateAirlineComponent },
       //{ path: 'treasure-detail/:id', component: TreasureDetailComponent },
     ]),
     BrowserAnimationsModule
