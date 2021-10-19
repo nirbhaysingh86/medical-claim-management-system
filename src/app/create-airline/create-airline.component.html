@@ -40,8 +40,8 @@
         <div class="col-4">
           <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType">
           <div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
-            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Number is required.</div>
-            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter only number.</div>
+            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Provider type is required.</div>
+            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter only alphabet.</div>
           </div>
         </div>
       </div>

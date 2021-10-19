@@ -30,6 +30,7 @@ export class AirlineListComponent {
 
   ngOnInit() {
     this.airlineService.getAirlines().subscribe((data: any) => {
+      localStorage.setItem("airlineList", JSON.stringify(data));
       console.log(data);
       this.airlines = data;
       this.collectionSize = data.length;

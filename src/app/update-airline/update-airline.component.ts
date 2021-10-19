@@ -18,7 +18,7 @@ export class UpdateAirlineComponent {
   filteredProviderNameOptions!: Observable<string[]>;
   filteredProviderCodeOptions!: Observable<string[]>;
   isProviderSelected: any;
-  filterCodeAirline: any;
+  filterCodeAirline: any[]=[];
 
   airlineForm: FormGroup = new FormGroup({
     providerName: new FormControl(),
@@ -28,7 +28,7 @@ export class UpdateAirlineComponent {
   });
 
   constructor(private airlineService: HttpClientAirlineService, private router: Router, private fb: FormBuilder) {
-    this.allAirlines = JSON.parse(localStorage.getItem("airlineList") as any);
+   
     this.airlineForm = fb.group({
       providerName: ['', [Validators.required, Validators.pattern("^[a-zA-Z]*$")]],
       providerCode: [''],
@@ -37,8 +37,9 @@ export class UpdateAirlineComponent {
 
     })
   }
-
+  //Get init values from the localstorage for the performence
   ngOnInit() {
+    this.allAirlines = JSON.parse(localStorage.getItem("airlineList") as any);
     this.filteredProviderNameOptions = this.airlineForm.controls.providerName.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -49,28 +50,27 @@ export class UpdateAirlineComponent {
     const filterValue = value.toLowerCase();
     return this.allAirlines.filter((option: string) => option.toLowerCase().includes(filterValue));
   }
-
+  //Get the existing provider code
   getProviderCode() {
     this.isProviderSelected = true;
+    this.filterCodeAirline = [];
     let gerRawData = this.airlineForm.getRawValue();
     if (gerRawData) {
-      this. filterCodeAirline = this.allAirlines.filter((airline: any) => {
-        return airline.providerName == gerRawData.providerName
+      this.allAirlines.filter((airline: any) => {
+        if (airline.providerName.toLowerCase() == gerRawData.providerName.toLowerCase()) {
+          this.filterCodeAirline.push(airline.providerCode);
+        }
       })
-
-      //this.filteredProviderCodeOptions = this.airlineForm.controls.providerCode.valueChanges.pipe(
-      //  startWith(''),
-      //  map(value => this._filter(value))
-      //);
     }
   }
-
+  //Update airline based on provider code
   updateAirline() {
     this.isExist = false;
     let gerRawData = this.airlineForm.getRawValue();
-    if (!this.airlineService.checkExistAirlineRecords(gerRawData)) {
-      const airline = { providerName: gerRawData.providerName, providerCode: gerRawData.providerCode + gerRawData.providerCodeValue, providerType: gerRawData.providerType };
-      this.airlineService.addAirline(airline).subscribe((data: any) => {
+    let existId = this.airlineService.checkExistAirlineForUpdateRecords(gerRawData);
+    if (existId) {
+      const airline = { id: existId, providerName: gerRawData.providerName, providerCode: gerRawData.providerCode + gerRawData.providerCodeValue, providerType: gerRawData.providerType };
+      this.airlineService.updateAirline(airline).subscribe((data: any) => {
         console.log(data);
         this.router.navigate(['/home']);
       })

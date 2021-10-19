@@ -25,7 +25,7 @@ export class CreateAirlineComponent {
      
     this.airlineForm = fb.group({
       providerName: ['', [Validators.required, Validators.pattern("^[a-zA-Z]*$")]],
-      providerCode: ['' ],
+      providerCode: ['', ],
       providerType: ['', [Validators.required, Validators.pattern("^[a-zA-Z]*$")]],
       providerCodeValue: ['', [Validators.pattern("^[0-9]*$")]],
 
@@ -33,12 +33,10 @@ export class CreateAirlineComponent {
   }
   
   ngOnInit() {
-    
+    this.allAirlines = JSON.parse(localStorage.getItem("airlineList") as any);
   }
 
   search(value: any): void {
-    
-    this.allAirlines = JSON.parse(localStorage.getItem("airlineList") as any);
     value = value.target.value;
     this.airlines = this.allAirlines.filter((val: any) => val.providerName.toLowerCase().includes(value.toLowerCase()))[0];
     if (this.airlines && this.airlines.providerCode && this.airlineForm.controls && this.airlineForm.controls.providerCode) {

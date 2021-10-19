@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Update airline information</h1>
   <div class="alert alert-warning" role="alert" *ngIf="isExist">
-    Airline records already exists.
+    Airline records not exists.
   </div>
   <form [formGroup]="airlineForm" (ngSubmit)="updateAirline()">
     <div class="form-group">
@@ -27,8 +27,8 @@
         <div class="col-4">
           <input type="text" class="form-control" maxlength="3" id="providerCode" formControlName="providerCode" (click)="getProviderCode()" [matAutocomplete]="autoCode">
           <mat-autocomplete autoActiveFirstOption #autoCode="matAutocomplete" >
-            <mat-option *ngFor="let option of filterCodeAirline" [value]="option.providerCode" >
-              {{option.providerCode}}
+            <mat-option *ngFor="let option of filterCodeAirline" [value]="option" >
+              {{option}}
             </mat-option>
           </mat-autocomplete>
         </div>
@@ -39,8 +39,8 @@
         <div class="col-4">
           <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType">
           <div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
-            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Number is required.</div>
-            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter only number.</div>
+            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Provider type is required.</div>
+            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter alphabet.</div>
           </div>
         </div>
       </div>

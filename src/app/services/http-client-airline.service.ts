@@ -12,9 +12,11 @@ const cudOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/jso
 
 export class HttpClientAirlineService extends AirlineService {
   isRecordExist: any;
+  allAirlinesList: any;
   constructor(private http: HttpClient) {
     super();
     this.isRecordExist = false;
+    
   }
 
   getAirlines(): Observable<Airline[]> {
@@ -38,8 +40,8 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
-  deleteAirline(villain: number | Airline): Observable<Airline> {
-    const id = typeof villain === 'number' ? villain : villain.id;
+  deleteAirline(airline: number | Airline): Observable<Airline> {
+    const id = typeof airline === 'number' ? airline : airline.id;
     const url = `${this.airlinesUrl}/${id}`;
 
     return this.http.delete<Airline>(url, cudOptions).pipe(
@@ -58,8 +60,8 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
-  updateAirline(villain: Airline): Observable<Airline> {
-    return this.http.put<Airline>(this.airlinesUrl, villain, cudOptions).pipe(
+  updateAirline(airline: any): Observable<Airline> {
+    return this.http.put<Airline>(this.airlinesUrl, airline, cudOptions).pipe(
       catchError(this.handleError)
     );
   }
@@ -68,13 +70,21 @@ export class HttpClientAirlineService extends AirlineService {
     console.error(error);
     return throwError(error);
   }
-
+  //Check records for create if match all parameter then it will not allow to create duplicate record.
   checkExistAirlineRecords(airlineValue: any) {
-    let allAirlinesList = JSON.parse(localStorage.getItem("airlineList") as any);
-    const filterAirline = allAirlinesList.filter((airline: any) => {
+    this.allAirlinesList = JSON.parse(localStorage.getItem("airlineList") as any);
+    const filterAirline = this.allAirlinesList.filter((airline: any) => {
       return airline.providerCode == (airlineValue.providerCode + airlineValue.providerCodeValue) && airline.providerName == airlineValue.providerName && airline.providerType == airlineValue.providerType
     })
     return filterAirline.length>0;
   }
 
+  //Check records for update based on provider code
+  checkExistAirlineForUpdateRecords(airlineValue: any) {
+    this.allAirlinesList = JSON.parse(localStorage.getItem("airlineList") as any);
+    const filterAirline = this.allAirlinesList.filter((airline: any) => {
+      return airline.providerCode == (airlineValue.providerCode + airlineValue.providerCodeValue)
+    })[0];
+    return filterAirline.id;
+  }
 }
