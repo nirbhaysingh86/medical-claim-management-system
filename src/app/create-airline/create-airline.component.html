@@ -3,19 +3,20 @@
     <div class="row row-padding">
       <div class="col-4">Provider Name</div>
       <div class="col-4">
-        <input type="text" class="form-control" maxlength="10" id="providerName">
+        <input type="text" class="form-control" maxlength="10" id="providerName" name="providerName" [(ngModel)]="providerName"
+           (input)="search($event)">
       </div>
     </div>
     <div class="row row-padding">
       <div class="col-4">Provider Code</div>
       <div class="col-4">
-        <input type="text" class="form-control" readonly maxlength="3" id="providerCode">
+        <input type="text" class="form-control" readonly maxlength="3" id="providerCode" name="providerCode" [(ngModel)]="providerCode" >
       </div>
     </div>
     <div class="row row-padding">
       <div class="col-4">Provider Type</div>
       <div class="col-4">
-        <input type="text" class="form-control" maxlength="13" id="providerType">
+        <input type="text" class="form-control" maxlength="13" id="providerType" name="providerType" [(ngModel)]="providerType">
       </div>
     </div>
     <div class="row row-padding">

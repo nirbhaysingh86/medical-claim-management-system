@@ -16,6 +16,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AirlineListComponent } from './airline-list/airline-list.component';
 import { ListFilterPipe } from './filters/listFilterPipe';
 import { CreateAirlineComponent } from './create-airline/create-airline.component';
+import { HomeAirlineComponent } from './home-airline/home-airline.component';
 
 
 
@@ -25,7 +26,8 @@ import { CreateAirlineComponent } from './create-airline/create-airline.componen
     NavMenuComponent,
     AirlineListComponent,
     ListFilterPipe,
-    CreateAirlineComponent
+    CreateAirlineComponent,
+    HomeAirlineComponent
   ],
   imports: [
     BrowserModule,
@@ -35,10 +37,10 @@ import { CreateAirlineComponent } from './create-airline/create-airline.componen
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(AirlineInMemDataService),
     RouterModule.forRoot([
-      { path: '', redirectTo: '/airlines', pathMatch: 'full' },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'viewairlines', component: AirlineListComponent },
       { path: 'createairline', component: CreateAirlineComponent },
-      //{ path: 'treasure-detail/:id', component: TreasureDetailComponent },
+      { path: 'home', component: HomeAirlineComponent },
     ]),
     BrowserAnimationsModule
   ],
