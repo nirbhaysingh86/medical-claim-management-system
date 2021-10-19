@@ -1,35 +1,4 @@
-a.navbar-brand {
-  white-space: normal;
+ 
+.text-align {
   text-align: center;
-  word-break: break-all;
-}
-
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-.nav.navbar-nav.navbar-right li a {
-  color: white !important;
-}
-
-.nav-link {
-  color: white !important;
-}
-
-.navbar-light .navbar-brand {
-  color: white !important;
-}
-
-.navbar-nav > .active > a {
- /* color: red !important;*/
-  font-weight:bold!important;
 }

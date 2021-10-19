@@ -12,18 +12,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AirlineListComponent } from './airline-list/airline-list.component';
-
+import { ListFilterPipe } from './filters/listFilterPipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     AirlineListComponent,
+    ListFilterPipe 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(AirlineInMemDataService),
     RouterModule.forRoot([
       { path: '', redirectTo: '/airlines', pathMatch: 'full' },

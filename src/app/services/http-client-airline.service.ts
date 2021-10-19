@@ -46,11 +46,11 @@ export class HttpClientAirlineService extends AirlineService {
     );
   }
 
-  searchAirline(term: string): Observable<Airline[]> {
-    term = term.trim();
+  searchAirline(providerType: string): Observable<Airline[]> {
+    providerType = providerType.trim();
     // add safe, encoded search parameter if term is present
-    const options = term ?
-      { params: new HttpParams().set('name', term) } : {};
+    const options = providerType ?
+      { params: new HttpParams().set('name', providerType) } : {};
 
     return this.http.get<Airline[]>(this.airlinesUrl, options).pipe(
       catchError(this.handleError)

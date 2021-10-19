@@ -7,7 +7,12 @@ import { HttpClientAirlineService } from '../services/http-client-airline.servic
   styleUrls: ['./airline-list.component.scss']
 })
 export class AirlineListComponent {
+  searchTerm: any;
+  page = 1;
+  pageSize = 4;
+  collectionSize: any;
   airlines: any[] = [];
+  allAirlines: any[] = [];
   constructor(private airlineService: HttpClientAirlineService) {
 
   }
@@ -15,7 +20,14 @@ export class AirlineListComponent {
     this.airlineService.getAirlines().subscribe((data: any) => {
       console.log(data);
       this.airlines = data;
+      this.collectionSize = data.length;
+      this.allAirlines = data;
     })
+  }
+  search(value: any): void {
+    value = value.target.value;
+    this.airlines = this.allAirlines.filter((val) => val.providerCode.toLowerCase().includes(value));
+    this.collectionSize = this.airlines.length;
   }
  
 }

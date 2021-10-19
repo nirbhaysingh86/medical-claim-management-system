@@ -1,26 +1,34 @@
-<h1>View AirlineProviders Information</h1>
-
-
+<h3>View Airline Information</h3>
+<form>
+  <div class="form-group form-inline">
+    Filter by provider code:
+    <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="searchTerm"
+           (input)="search($event)" />
+  </div>
+</form>
 <div class="table-responsive-md">
-  <table class="table table-bordered" >
+  <table class="table table-bordered text-align">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ProviderCode</th>
-        <th scope="col">ProviderName</th>
-        <th scope="col">ProviderType</th>
+        <th scope="col">Provider Code</th>
+        <th scope="col">Provider Name</th>
+        <th scope="col">Provider Type</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let airline of airlines">
-         
         <td>{{airline.providerCode}}</td>
         <td>{{airline.providerName}}</td>
         <td>{{airline.providerType}}</td>
       </tr>
-      
     </tbody>
   </table>
+  
 </div>
+
+
+
+
 
 
 
