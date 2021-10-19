@@ -1,21 +1,6 @@
-<h1>Insurance Policies</h1>
-<table style="width:100%">
-  <tr>
-    <th>Policy Number</th>
-    <th>Amount</th>
-    <th>Description</th>
-    <th>Actions</th>
-  </tr>
-  <tr *ngFor="let airline of airlines">
-    <td>{{ airline.providerName }}</td>
-    <td>{{ airline.providerCode }}</td>
-    <td>{{ airline.providerType }}</td>
-
-    <!--<td>
-      <button (click)="deletePolicy(policy.id)">Delete</button>
-      <button (click)="updatePolicy(policy)">Update</button>
-      <button (click)="createPolicy(policy)">Create</button>
-
-    </td>-->
-  </tr>
-</table>
+<body>
+  <app-nav-menu></app-nav-menu>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</body>
