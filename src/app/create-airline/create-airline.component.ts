@@ -35,7 +35,7 @@ export class CreateAirlineComponent {
   ngOnInit() {
     this.allAirlines = JSON.parse(localStorage.getItem("airlineList") as any);
   }
-
+  //Searching provider name and based on name defaulting code
   search(value: any): void {
     value = value.target.value;
     this.airlines = this.allAirlines.filter((val: any) => val.providerName.toLowerCase().includes(value.toLowerCase()))[0];
@@ -46,7 +46,7 @@ export class CreateAirlineComponent {
     }
      
   }
-
+  //Create a new airline
   createAirline() {
     this.isExist = false;
     let gerRawData = this.airlineForm.getRawValue();
@@ -60,7 +60,7 @@ export class CreateAirlineComponent {
       this.isExist = true;
     }
   }
-   
+   //Get the error validation from the reactive form control
   get f() {
     return this.airlineForm.controls;
   }

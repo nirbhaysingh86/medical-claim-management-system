@@ -18,7 +18,8 @@ export class UpdateAirlineComponent {
   filteredProviderNameOptions!: Observable<string[]>;
   filteredProviderCodeOptions!: Observable<string[]>;
   isProviderSelected: any;
-  filterCodeAirline: any[]=[];
+  filterCodeAirline: any[] = [];
+  isUpdateButton: any;
 
   airlineForm: FormGroup = new FormGroup({
     providerName: new FormControl(),
@@ -45,11 +46,23 @@ export class UpdateAirlineComponent {
       map(value => this._filter(value))
     );
   }
-
+  //For auto complete
   private _filter(value: any): string[] {
     const filterValue = value.toLowerCase();
     return this.allAirlines.filter((option: string) => option.toLowerCase().includes(filterValue));
   }
+
+  search(value: any): void {
+    value = value.target.value;
+    this.isUpdateButton = true;
+    this.airlines = this.allAirlines.filter((val: any) => val.providerType.toLowerCase().includes(value.toLowerCase()))[0];
+    if (this.airlines && this.airlines.providerType && this.airlineForm.controls && this.airlineForm.controls.providerType
+      && this.airlines.providerType.toLowerCase() === this.airlineForm.controls.providerType.value.toLowerCase()) {
+      this.isUpdateButton = false;
+    }  
+
+  }
+
   //Get the existing provider code
   getProviderCode() {
     this.isProviderSelected = true;

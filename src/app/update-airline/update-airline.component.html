@@ -37,7 +37,7 @@
       <div class="row row-padding">
         <div class="col-4">Provider Type</div>
         <div class="col-4">
-          <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType">
+          <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType" (input)="search($event)">
           <div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
             <div *ngIf="f.providerType.errors && f.providerType.errors.required">Provider type is required.</div>
             <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter alphabet.</div>
@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <button class="btn btn-primary" type="submit" [disabled]="!airlineForm.valid">Update Airline</button>
+    <button class="btn btn-primary" type="submit" [disabled]="isUpdateButton ||!airlineForm.valid ">Update Airline</button>
   </form>
 </div>
 
