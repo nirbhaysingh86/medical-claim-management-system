@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Delete airline information</h1>
   <div class="alert alert-warning" role="alert" *ngIf="isDeleteButton">
-   Please select correct provider type.
+    Please select correct provider type.
   </div>
   <form [formGroup]="airlineForm" (ngSubmit)="deleteAirline()">
     <div class="form-group">
@@ -28,9 +28,17 @@
           </div>
         </div>
       </div>
+      <div class="row row-padding">
+        <div class="col-4">
+           
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary" type="submit" [disabled]="isDeleteButton ||!airlineForm.valid ">Delete Airline</button>
+        </div>
+      </div>
     </div>
 
-    <button class="btn btn-primary" type="submit" [disabled]="isDeleteButton ||!airlineForm.valid ">Delete Airline</button>
+
   </form>
 </div>
 
