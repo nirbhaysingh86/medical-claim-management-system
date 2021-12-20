@@ -4,13 +4,12 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\airline-list",
-    "\\src\\app\\create-airline",
     "\\src\\app\\delete-airline",
+    "\\src\\app\\filters",
     "\\src\\app\\home-airline",
     "\\src\\app\\nav-menu",
     "\\src\\app\\services",
     "\\src\\app\\update-airline"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
