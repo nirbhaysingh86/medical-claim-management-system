@@ -3,4 +3,12 @@
 }
 .create-icon {
   background-color: #FAA727 !important;
+  width: 29px;
+  padding: 2px;
+}
+@media (min-width: 576px)  {
+  .col-csm-1{
+  width: 3.333333%!important
+  }
+   
 }
