@@ -4,8 +4,9 @@
       <div class="navbar-brand"> </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </button><div class="myMedical-Claim-text">myMedical Claim</div>
       <div class="collapse navbar-collapse" id="navbarNav">
+
         <ul class="navbar-nav panel_txt">
           <li class="nav-item nav-padding" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
@@ -23,19 +24,17 @@ true}">
 true}">
             <a class="nav-link" [routerLink]="['/createairline']">About</a>
           </li>
-
-
-
         </ul>
+
       </div>
     </div>
   </nav>
-
+   
   <div class="sidebar">
-    <a class="panel_txt" href="#home">Mas Claim</a>
-    <a  class="panel_txt" href="#news">Medical Insurance Claim</a>
-    <a  class="panel_txt" href="#contact">Annual Health Checkup</a>
-    <a class="panel_txt" href="#about">About</a>
+    <a class="panel_txt" href="#home"><i class="material-icons medical-icon">medical_services</i>Mas Claim</a>
+    <a class="panel_txt" href="#news"><img src="assets/umbrella.png" alt="Open" class="medical-icon"    />Medical Insurance Claim</a>
+    
+     
   </div>
 
   <div class="content">

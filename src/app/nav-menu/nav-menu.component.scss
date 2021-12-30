@@ -28,6 +28,7 @@ html {
   direction: rtl;
   height: 40px;
 }
+
 .nav-link {
   color: black !important;
 }
@@ -49,7 +50,7 @@ html {
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 220px;
+  width: 250px;
   background-color: #353847 !important;
   position: fixed;
   height: 100%;
@@ -63,7 +64,7 @@ html {
   font-family: "segoe UI";
   font-weight: 600;
   text-decoration: none;
-  font-size: 10pt;
+  font-size: 9pt;
 }
 
 .sidebar a.active {
@@ -74,13 +75,13 @@ html {
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
-  width: 220px;
+  width: 250px;
 }
 
 div.content {
-  margin-left: 221px;
+  margin-left: 251px;
   padding: 1px 16px;
-  height: 500px;
+  height: 400px;
 }
 
 @media screen and (max-width: 700px) {
@@ -104,4 +105,15 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+.myMedical-Claim-text{
+    width:250px!important;
+    color:white;
+    font-weight:400!important;
+}
+.medical-icon {
+  color: white !important;
+  padding-right: 15px !important;
+  transform: scale(1.5);
+  width:40px;
 }
