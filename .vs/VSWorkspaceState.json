@@ -11,5 +11,6 @@
     "\\src\\app\\services",
     "\\src\\app\\update-airline"
   ],
+  "SelectedNode": "\\src\\app\\home-airline\\home-airline.component.ts",
   "PreviewInSolutionExplorer": false
 }
