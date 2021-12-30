@@ -5,11 +5,11 @@ import { HttpClientAirlineService } from '../services/http-client-airline.servic
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-airline',
-  templateUrl: './create-airline.component.html',
-  styleUrls: ['./create-airline.component.scss']
+  selector: 'app-create-domiciliary',
+  templateUrl: './create-domiciliary.component.html',
+  styleUrls: ['./create-domiciliary.component.scss']
 })
-export class CreateAirlineComponent {
+export class CreateDomiciliaryComponent {
   airlines: any;
   allAirlines: any;
   isExist: any;

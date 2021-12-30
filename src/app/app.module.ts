@@ -15,7 +15,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { AirlineListComponent } from './airline-list/airline-list.component';
 import { ListFilterPipe } from './filters/listFilterPipe';
-import { CreateAirlineComponent } from './create-airline/create-airline.component';
+import { CreateDomiciliaryComponent } from './create-domiciliary/create-domiciliary.component';
 import { HomeAirlineComponent } from './home-airline/home-airline.component';
 import { UpdateAirlineComponent } from './update-airline/update-airline.component';
 import { DeleteAirlineComponent } from './delete-airline/delete-airline.component';
@@ -28,7 +28,7 @@ import { DeleteAirlineComponent } from './delete-airline/delete-airline.componen
     NavMenuComponent,
     AirlineListComponent,
     ListFilterPipe,
-    CreateAirlineComponent,
+    CreateDomiciliaryComponent,
     HomeAirlineComponent,
     UpdateAirlineComponent,
     DeleteAirlineComponent
@@ -44,7 +44,7 @@ import { DeleteAirlineComponent } from './delete-airline/delete-airline.componen
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'viewairlines', component: AirlineListComponent },
-      { path: 'createairline', component: CreateAirlineComponent },
+      { path: 'createdomiciliary', component: CreateDomiciliaryComponent },
       { path: 'updateairline', component: UpdateAirlineComponent },
       { path: 'deleteairline', component: DeleteAirlineComponent },
       { path: 'home', component: HomeAirlineComponent },

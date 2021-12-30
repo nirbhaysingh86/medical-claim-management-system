@@ -18,7 +18,7 @@ true}">
           </li>
           <li class="nav-item nav-padding" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
-            <a class="nav-link" [routerLink]="['/updateairline']">Create </a>
+            <a class="nav-link" [routerLink]="['/createdomiciliary']">Create </a>
           </li>
           <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">
@@ -31,8 +31,8 @@ true}">
   </nav>
    
   <div class="sidebar">
-    <a class="panel_txt" href="#home"><i class="material-icons medical-icon">medical_services</i>Mas Claim</a>
-    <a class="panel_txt" href="#news"><img src="assets/umbrella.png" alt="Open" class="medical-icon"    />Medical Insurance Claim</a>
+    <a class="panel_txt" [routerLink]="['/createdomiciliary']"><i class="material-icons medical-icon">medical_services</i>Mas Claim</a>
+    <a class="panel_txt" href="#news"><img src="assets/umbrella.png" alt="Open" class="umbrella--icon"    />Medical Insurance Claim</a>
     
      
   </div>
