@@ -4,3 +4,12 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+.panel_txt {
+  color: #afafad;
+  float: left;
+  font-family: "segoe UI";
+  font-weight: 600;
+  padding: 10px 5px 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

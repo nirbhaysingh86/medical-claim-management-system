@@ -19,10 +19,17 @@ html {
 
 .nav.navbar-nav.navbar-right li a {
   color: white !important;
+ 
 }
-
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+  direction: rtl;
+  height: 40px;
+}
 .nav-link {
-  color: white !important;
+  color: black !important;
 }
 
 .navbar-light .navbar-brand {
@@ -30,18 +37,20 @@ html {
 }
 
 .navbar-nav > .active > a {
- /* color: red !important;*/
-  font-weight:bold!important;
+  color: white !important;
+  background-color: #484848 !important;
+  font-weight: bold !important;
 }
-.nav-padding {
-  padding-left: 40px;
+ 
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: #FAA727 !important;
 }
-
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
+  width: 220px;
+  background-color: #353847 !important;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -49,23 +58,27 @@ html {
 
 .sidebar a {
   display: block;
-  color: black;
+  color: white;
   padding: 16px;
+  font-family: "segoe UI";
+  font-weight: 600;
   text-decoration: none;
+  font-size: 10pt;
 }
 
 .sidebar a.active {
-  background-color: #04AA6D;
+  background-color: #2a2a2a;
   color: white;
 }
 
 .sidebar a:hover:not(.active) {
   background-color: #555;
   color: white;
+  width: 220px;
 }
 
 div.content {
-  margin-left: 200px;
+  margin-left: 221px;
   padding: 1px 16px;
   height: 500px;
 }
