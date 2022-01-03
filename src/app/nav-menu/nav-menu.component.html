@@ -30,15 +30,13 @@ true}">
     </div>
   </nav>
    
-  <div class="sidebar">
-    <a class="panel_txt" [routerLink]="['/createdomiciliary']" routerLinkActive="active"><i class="material-icons medical-icon">medical_services</i>Mas Claim</a>
-    <a class="panel_txt" href="#news" routerLinkActive="active"><img src="assets/umbrella.png" alt="Open" class="umbrella--icon"    />Medical Insurance Claim</a>
-    
-     
+  <div class="sidebar ">
+    <div  ><a class="panel_txt border-bottom" [routerLink]="['/createdomiciliary']" routerLinkActive="active"><i class="material-icons medical-icon">medical_services</i>Mas Claim</a></div>  
+    <div  ><a class="panel_txt border-bottom" href="#news" routerLinkActive="active"><img src="assets/umbrella.png" alt="Open" class="umbrella--icon" />Medical Insurance Claim</a></div>  
   </div>
 
   <div class="content">
-    <div class="container">
+    <div class="container-fluid">
       <router-outlet></router-outlet>
     </div>
   </div>

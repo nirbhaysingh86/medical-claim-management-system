@@ -1,57 +1,13 @@
 <div class="container container-top-padding">
-  <div class="row"><div class="col-csm-1"><i class="material-icons medical-icon create-icon">medical_services</i></div><div class="col-sm-1">Create</div>  </div> 
+  <div class="row">
+    <div class="col-csm-1"><i class="material-icons medical-icon create-icon">medical_services</i></div><div class="col-csm-1">Create</div>
+    <div class="col-sm-11 image-direction">
+      <img src="assets/WBP_Small_banner_3.jpg" alt="Open"  class="umbrella--icon image-width" />
+    </div>
+  </div>
   <div class="alert alert-warning" role="alert" *ngIf="isExist">
     Airline records already exists.
   </div>
-    <form [formGroup]="airlineForm" (ngSubmit)="createAirline()">
-
-    <div class="form-group">
-
-      <div class="row row-padding">
-        <div class="col-4">Provider Name</div>
-        <div class="col-4">
-          <input type="text" class="form-control" maxlength="10" id="providerName" formControlName="providerName"
-                 (input)="search($event)">
-        </div>
-        <div *ngIf="f.providerName.touched && f.providerName.invalid" class="alert alert-danger">
-          <div *ngIf="f.providerName.errors && f.providerName.errors.required">Provider Name is required.</div>
-          <div *ngIf="f.providerName.errors && f.providerName.errors.pattern">Enter only alphabet.</div>
-        </div>
-      </div>
-      <div class="row row-padding">
-        <div class="col-4">Provider Code</div>
-        <div class="col-2">
-          <input type="text" class="form-control" readonly maxlength="3" id="providerCode" formControlName="providerCode">
-        </div>
-        <div class="col-2">
-          <input formControlName="providerCodeValue"
-                 id="providerCodeValue"
-                 type="text"
-                 maxlength="3"
-                 class="form-control">
-          <div *ngIf="f.providerCodeValue.touched && f.providerCodeValue.invalid" class="alert alert-danger">
-            <div *ngIf="f.providerCodeValue.errors && f.providerCodeValue.errors.required">Number is required.</div>
-            <div *ngIf="f.providerCodeValue.errors && f.providerCodeValue.errors.pattern">Enter only number.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row row-padding">
-        <div class="col-4">Provider Type</div>
-        <div class="col-4">
-          <input type="text" class="form-control" maxlength="13" id="providerType" formControlName="providerType">
-          <div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
-            <div *ngIf="f.providerType.errors && f.providerType.errors.required">Provider type is required.</div>
-            <div *ngIf="f.providerType.errors && f.providerType.errors.pattern">Enter only alphabet.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row row-padding">
-        <div class="col-4"></div>
-        <div class="col-4">
-          <button class="btn btn-primary" type="submit" [disabled]="!airlineForm.valid">Add Airline</button>
-        </div>
-      </div>
-    </div>
-  </form>
+   
 </div>
 
