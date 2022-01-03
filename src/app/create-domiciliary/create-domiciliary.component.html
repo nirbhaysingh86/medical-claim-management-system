@@ -1,13 +1,23 @@
 <div class="container container-top-padding">
   <div class="row">
     <div class="col-csm-1"><i class="material-icons medical-icon create-icon">medical_services</i></div><div class="col-csm-1">Create</div>
-    <div class="col-sm-11 image-direction">
-      <img src="assets/WBP_Small_banner_3.jpg" alt="Open"  class="umbrella--icon image-width" />
+    <div class="col-sm-11 image-direction ">
+      <img src="assets/WBP_Small_banner_3.jpg" alt="Open" class="umbrella--icon image-width" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 card-column"><div class="card-header">UTILIZATION DETAILS</div></div>
+    <div class="col-sm-4 selectDrop"><select form="assetType" aria-labelledby="sel_expmnth" id="ddYearSelect" title="Select expense year" class="selectn11 p3sel" name="type" onchange="setMedYear()"><option value="2021">FY - 2021-22</option></select></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 card-column"><div class="card-header">SELECT EXPENSE MONTH</div></div>
+    <div class="col-sm-4">
+      
     </div>
   </div>
   <div class="alert alert-warning" role="alert" *ngIf="isExist">
     Airline records already exists.
   </div>
-   
+
 </div>
 

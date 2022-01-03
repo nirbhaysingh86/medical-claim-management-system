@@ -84,6 +84,7 @@ div.content {
   margin-left: 238px;
   padding: 0px 0px;
   height: 400px;
+  background-color: #f1f2f6 !important;
 }
 
 @media screen and (max-width: 700px) {
@@ -120,3 +121,6 @@ div.content {
   width: 100% !important;
 }
  
+.zero-padding{
+    padding:0px!important;
+}
