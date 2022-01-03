@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\airline-list",
-    "\\src\\app\\delete-airline",
-    "\\src\\app\\filters",
+    "\\src\\app\\create-domiciliary",
     "\\src\\app\\home-airline",
     "\\src\\app\\nav-menu",
     "\\src\\app\\services",
-    "\\src\\app\\update-airline"
+    "\\src\\app\\update-airline",
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\home-airline\\home-airline.component.ts",
+  "SelectedNode": "\\src\\app\\nav-menu\\nav-menu.component.scss",
   "PreviewInSolutionExplorer": false
 }

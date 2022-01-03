@@ -68,14 +68,16 @@ html {
 }
 
 .sidebar a.active {
-  background-color: #2a2a2a;
+  background-color: rgb(0 0 0 / 87%);
   color: white;
+  width:100%!important;
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: rgb(0 0 0 / 87%);
   color: white;
   width: 250px;
+  width: 100% !important;
 }
 
 div.content {
